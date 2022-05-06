@@ -22,21 +22,10 @@ const mainConfig = {
 
   // 开发时文件是否保存对应源文件信息 保存的方式又是如何
   devtool: 'inline-source-map',
-
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx|ts|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-    ],
-  },
-  plugins: [],
 };
 
-modules.exports = webpackMerge(baseConfig, mainConfig);
+module.exports = webpackMerge.merge(baseConfig, mainConfig);
 
 // path join 单纯拼接 不管你路径是否合理  /a,/b => /a/b       resolve 会把路径合法化 /会作为根目录处理  /a,/b  => /b
+
+// webpackMerge.merge()  这个才是merge的函数

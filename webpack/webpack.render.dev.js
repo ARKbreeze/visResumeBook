@@ -3,15 +3,15 @@ const baseConfig = require('./webpack.base.js');
 const webpackMerge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const mainConfig = {
+const devConfig = {
   // webpack预设开发模式  代表着一系列针对开发的设置具体看文档
   mode: 'development',
 
   //入口文件
-  entry: path.resolve(__dirname, '../app/renderer/app.jsx'),
+  entry: { index: path.resolve(__dirname, '../app/renderer/app.jsx') },
 
   //target  目标文件
-  //target : web , electron-main
+  // target: 'web',
   target: 'electron-renderer',
 
   //output 输出文件 跟路径 dist/[name].[hash].js
@@ -43,6 +43,6 @@ const mainConfig = {
   ],
 };
 
-modules.exports = webpackMerge(baseConfig, mainConfig);
+module.exports = webpackMerge.merge(baseConfig, devConfig);
 
 // path join 单纯拼接 不管你路径是否合理  /a,/b => /a/b       resolve 会把路径合法化 /会作为根目录处理  /a,/b  => /b

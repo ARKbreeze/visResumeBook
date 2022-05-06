@@ -1,6 +1,6 @@
-modules.exports = {
+module.exports = {
   //预设值
-  preset: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+  presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
   //插件
   plugins: [
     '@babel/plugin-transform-runtime',
